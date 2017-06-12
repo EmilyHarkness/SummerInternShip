@@ -23,17 +23,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnToastTap.setOnClickListener(this);
         btnCountTap = (Button)findViewById(R.id.buttonCount);
         btnCountTap.setOnClickListener(this);
+        btnRandomTap = (Button)findViewById(R.id.buttonRandom);
+        btnRandomTap.setOnClickListener(this);
     }
 
     private static final String TOTAL_COUNT = "total_count";
-    public void buttonRandomOnClick(View view) {
-        Intent randomIntent = new Intent(this, SecondActivity.class);
-        TextView showCountTextView = (TextView) findViewById(R.id.textView1);
-        String countString = showCountTextView.getText().toString();
-        int count = Integer.parseInt(countString);
-        randomIntent.putExtra(TOTAL_COUNT, count);
-        startActivity(randomIntent);
-    }
     @Override
     public void onClick(View v) {
         switch(v.getId()){
@@ -47,6 +41,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Integer count = Integer.parseInt(countString);
                 count++;
                 showCountTextView.setText(count.toString());
+                break;
+            case R.id.buttonRandom:
+                Intent randomIntent = new Intent(this, SecondActivity.class);
+                TextView showCountTextView2 = (TextView) findViewById(R.id.textView1);
+                String countString2 = showCountTextView2.getText().toString();
+                int count2 = Integer.parseInt(countString2);
+                randomIntent.putExtra(TOTAL_COUNT, count2);
+                startActivity(randomIntent);
                 break;
         }
     }
